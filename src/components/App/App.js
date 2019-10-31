@@ -8,35 +8,34 @@ import {
 } from 'react-router-dom';
 import Dahsboard from '../Dashboard/Dashboard';
 import ManageOwners from '../ManageOwners/ManageOwners';
+import NavBar from '../NavBar/NavBar';
 
 function App() {
   return (
     <Router>
-    <Switch>
-      <Redirect exact from="/" to="/dashboard"/>
-      <Route 
-        exact
-        path="/dashboard"
-        render={(navProps)=>(
-          <Dahsboard
-            match={navProps.match}
-            history={navProps.history}/>
-        )}></Route>
+      <NavBar/>
 
-      <Route 
-        exact
-        path="/manageOwners"
-        render={(navProps)=>(
-          <ManageOwners
-            match={navProps.match}
-            history={navProps.history}/>
-        )}></Route>
+      <Switch>
+        <Redirect exact from="/" to="/dashboard"/>
+        <Route 
+          exact
+          path="/dashboard"
+          render={(navProps)=>(
+            <Dahsboard
+              match={navProps.match}
+              history={navProps.history}/>
+          )}></Route>
 
+        <Route 
+          exact
+          path="/manageOwners"
+          render={(navProps)=>(
+            <ManageOwners
+              match={navProps.match}
+              history={navProps.history}/>
+          )}></Route>
 
-      <div className="App">
-        Home page - router here
-      </div>
-    </Switch>
+      </Switch>
     </Router>
   );
 }
